@@ -14,7 +14,8 @@ Turn incomplete runner information into a coach-ready, sourced presentation. Kee
    - Record race date, target, available weeks, training frequency, recent monthly volume, PB dates, injury status, age, sex, location, and sponsor constraints.
    - Label each important statement as fact, calculation, coaching inference, assumption, or item to verify.
 2. Build the athlete model.
-   - Calculate BMI, recent weekly-equivalent volume, goal pace, HRR zones when resting and maximum HR are known, and race-equivalent ability.
+   - Calculate BMI, recent weekly-equivalent volume, goal pace, heart-rate zones, and race-equivalent ability.
+   - Use maximum-heart-rate percentages for beginners or when only maximum HR is available. Use heart-rate reserve for systematic runners when resting HR and a credible observed maximum HR are available.
    - Use `scripts/running_metrics.py` for deterministic calculations.
    - Read `references/methodology.md` before selecting training load, pace bands, injury modifications, or physiological adaptations.
 3. Research unstable facts.
@@ -62,4 +63,4 @@ Use this sequence unless the brief requires another structure:
 
 - `references/methodology.md`: calculations, planning logic, injury safeguards, female-physiology handling, and sponsor framework.
 - `references/qa-checklist.md`: content, evidence, visual, and export release checks.
-- `scripts/running_metrics.py`: BMI, weekly-equivalent volume, goal pace, HRR zones, Riegel equivalents, and Daniels-style VDOT estimates.
+- `scripts/running_metrics.py`: BMI, weekly-equivalent volume, goal pace, MHR/HRR zones, Riegel equivalents, and Daniels-style VDOT estimates.

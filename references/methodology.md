@@ -16,11 +16,22 @@ Never turn an assumption into a profile fact. When a runner maintains substantia
 
 - Weekly-equivalent kilometres = monthly kilometres × 12 ÷ 52.
 - Goal pace = target seconds ÷ marathon distance.
-- HRR target = resting HR + intensity fraction × (maximum HR − resting HR).
+- Heart-rate method selection:
+  - Beginner or limited data: use maximum-heart-rate percentage (`target = MHR × intensity fraction`). Prefer an observed maximum; when unavailable, `208 − 0.7 × age` may be used only as an explicitly labelled estimate.
+  - Systematic runner: use heart-rate reserve when resting HR and a credible observed maximum are available (`target = resting HR + intensity fraction × (maximum HR − resting HR)`).
+- Use these coaching bands rather than equal-width generic zones:
+  - Low-intensity aerobic: 65–79% MHR or 59–74% HRR.
+  - High-intensity aerobic: 79–88% MHR or 74–84% HRR.
+  - Threshold: 88–92% MHR or 85–89% HRR.
+  - Anaerobic endurance: 93–95% MHR or 89–93% HRR.
+  - Anaerobic power: 96–100% MHR or 94–100% HRR.
+- Preserve the printed transition percentages. A boundary may overlap or leave a one-percentage-point transition; classify that heartbeat by session intent, RPE, and repeated field response rather than claiming false physiological precision.
 - Use Riegel only as an estimate: `T2 = T1 × (D2/D1)^1.06` by default.
 - VDOT is a performance index, not laboratory VO2max. State the model and round to one decimal.
 
 When PB values disagree, show the distance-specific values and identify recency, course, and current-fitness uncertainty. Do not average them into false precision.
+
+Heart-rate ranges are starting points, not diagnoses or absolute physiological thresholds. Heat, dehydration, altitude, fatigue, medication, cardiac drift, and sensor quality can shift the observed response. Calibrate systematic runners with repeated training data or a suitable threshold assessment.
 
 ## 3. Load design
 

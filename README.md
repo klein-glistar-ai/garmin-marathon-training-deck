@@ -5,7 +5,7 @@ An OpenAI Codex skill for turning an athlete profile, marathon goal, injury cons
 ## What it covers
 
 - Athlete data normalization and deterministic metrics
-- Pace, HRR, VDOT, and race-equivalent analysis
+- Pace, MHR/HRR, VDOT, and race-equivalent analysis
 - Phased marathon planning with strength and decision gates
 - Injury traffic lights and explicit medical boundaries
 - Symptom-led female physiology adaptation
@@ -27,7 +27,7 @@ The skill entry point is `SKILL.md`. Detailed methodology and QA checks are in `
 ```bash
 python3 scripts/running_metrics.py \
   --height-cm 163 --weight-kg 53 --monthly-km 187 \
-  --rest-hr 43 --max-hr 185 --goal-time 3:30:00 \
+  --rest-hr 43 --max-hr 185 --hr-method hrr --goal-time 3:30:00 \
   --race-distance marathon --race-time 3:31:00
 ```
 

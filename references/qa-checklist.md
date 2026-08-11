@@ -5,6 +5,8 @@
 - [ ] Monthly volume and time window use the intended definition.
 - [ ] Race date, weeks available, target pace, PB dates, and current fitness evidence are consistent.
 - [ ] BMI, weekly volume, HR zones, VDOT, and equivalent performances were independently recalculated.
+- [ ] HR method is explicit: %MHR for beginners/limited data; %HRR for systematic runners with resting and credible maximum HR data.
+- [ ] Heart-rate bands match the five prescribed MHR/HRR intensity ranges rather than generic equal-width zones.
 - [ ] Facts, inferences, assumptions, and items to verify are distinguishable.
 
 ## Coaching safety

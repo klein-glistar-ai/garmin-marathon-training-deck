@@ -7,6 +7,13 @@ import math
 
 
 DISTANCES_KM = {"5k": 5.0, "10k": 10.0, "half": 21.0975, "marathon": 42.195}
+HR_BANDS = [
+    ("low_aerobic", "低强度有氧", (0.65, 0.79), (0.59, 0.74)),
+    ("high_aerobic", "高强度有氧", (0.79, 0.88), (0.74, 0.84)),
+    ("threshold", "阈值/门槛", (0.88, 0.92), (0.85, 0.89)),
+    ("anaerobic_endurance", "无氧耐力", (0.93, 0.95), (0.89, 0.93)),
+    ("anaerobic_power", "无氧爆发", (0.96, 1.00), (0.94, 1.00)),
+]
 
 
 def parse_time(value: str) -> float:
@@ -40,6 +47,8 @@ def main() -> None:
     ap.add_argument("--monthly-km", type=float)
     ap.add_argument("--rest-hr", type=float)
     ap.add_argument("--max-hr", type=float)
+    ap.add_argument("--age", type=float)
+    ap.add_argument("--hr-method", choices=("auto", "mhr", "hrr"), default="auto")
     ap.add_argument("--goal-time")
     ap.add_argument("--race-distance", choices=DISTANCES_KM)
     ap.add_argument("--race-time")
@@ -53,12 +62,38 @@ def main() -> None:
     if args.goal_time:
         sec = parse_time(args.goal_time)
         out["marathon_goal_pace_per_km"] = fmt_time(sec / DISTANCES_KM["marathon"])
-    if args.rest_hr is not None and args.max_hr is not None:
+    resolved_max_hr = args.max_hr
+    max_hr_source = "observed_or_supplied"
+    if resolved_max_hr is None and args.age is not None:
+        resolved_max_hr = round(208 - 0.7 * args.age)
+        max_hr_source = "estimated_208_minus_0.7_age"
+    method = args.hr_method
+    if method == "auto":
+        method = "hrr" if resolved_max_hr is not None and args.rest_hr is not None else "mhr"
+    if method == "hrr" and (resolved_max_hr is None or args.rest_hr is None):
+        ap.error("HRR requires --rest-hr plus --max-hr or --age")
+    if method == "mhr" and resolved_max_hr is None:
+        ap.error("MHR requires --max-hr or --age")
+    if resolved_max_hr is not None:
         zones = {}
-        for name, low, high in [("Z1", .50, .60), ("Z2", .60, .70), ("Z3", .70, .80), ("Z4", .80, .90), ("Z5", .90, 1.00)]:
-            reserve = args.max_hr - args.rest_hr
-            zones[name] = [round(args.rest_hr + low * reserve), round(args.rest_hr + high * reserve)]
-        out["hrr_zones_bpm"] = zones
+        for key, label, mhr_band, hrr_band in HR_BANDS:
+            low, high = hrr_band if method == "hrr" else mhr_band
+            if method == "hrr":
+                reserve = resolved_max_hr - args.rest_hr
+                bpm = [round(args.rest_hr + low * reserve), round(args.rest_hr + high * reserve)]
+            else:
+                bpm = [round(resolved_max_hr * low), round(resolved_max_hr * high)]
+            zones[key] = {
+                "label": label,
+                "percent": [round(low * 100), round(high * 100)],
+                "bpm": bpm,
+            }
+        out["heart_rate_method"] = method
+        out["maximum_hr_bpm"] = round(resolved_max_hr)
+        out["maximum_hr_source"] = max_hr_source
+        if method == "hrr":
+            out["heart_rate_reserve_bpm"] = round(resolved_max_hr - args.rest_hr)
+        out["heart_rate_zones"] = zones
     if args.race_distance and args.race_time:
         d1 = DISTANCES_KM[args.race_distance]
         t1 = parse_time(args.race_time)

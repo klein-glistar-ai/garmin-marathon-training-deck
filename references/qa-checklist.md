@@ -2,6 +2,9 @@
 
 ## Brief and calculations
 
+- [ ] The profile passed the intake validator or the report is explicitly marked provisional.
+- [ ] Critical missing information was requested in no more than three grouped questions.
+- [ ] No supplied field was asked for again, and no missing field was silently invented.
 - [ ] Monthly volume and time window use the intended definition.
 - [ ] Race date, weeks available, target pace, PB dates, and current fitness evidence are consistent.
 - [ ] BMI, weekly volume, HR zones, VDOT, and equivalent performances were independently recalculated.

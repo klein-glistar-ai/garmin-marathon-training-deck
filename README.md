@@ -1,10 +1,11 @@
 # Marathon Training Deck Builder
 
-An OpenAI Codex skill for turning an athlete profile, marathon goal, injury constraints, local conditions, wearable data, and sponsor requirements into a sourced, visually verified coaching presentation.
+An OpenAI Codex skill for turning a runner profile supplied as text, an image, a table, or JSON into a sourced, visually verified coaching presentation. It checks information completeness first and asks concise follow-up questions when critical data is missing.
 
 ## What it covers
 
 - Athlete data normalization and deterministic metrics
+- Missing-information detection with up to three grouped questions
 - Pace, MHR/HRR, VDOT, and race-equivalent analysis
 - Phased marathon planning with strength and decision gates
 - Injury traffic lights and explicit medical boundaries
@@ -20,7 +21,7 @@ Copy this repository into your Codex skills directory, then invoke:
 $build-marathon-training-deck
 ```
 
-The skill entry point is `SKILL.md`. Detailed methodology and QA checks are in `references/`, while `scripts/running_metrics.py` provides deterministic calculations.
+The skill entry point is `SKILL.md`. The intake schema and coaching methodology are in `references/`. `scripts/validate_runner_profile.py` checks readiness, while `scripts/running_metrics.py` provides deterministic calculations.
 
 ## Example
 

@@ -1,15 +1,28 @@
 ---
 name: build-marathon-training-deck
-description: Build or revise an evidence-based marathon coaching presentation from an athlete profile, target race, injury constraints, local conditions, wearable data, and sponsor requirements. Use for PPT/PPTX training-plan decks that need quantified athlete analysis, pace and heart-rate zones, phased schedules, injury and female-physiology safeguards, race-course strategy, brand-consistent sponsor integration, source notes, and slide-by-slide visual QA.
+description: Turn a runner profile supplied as natural language, an image, a table, or structured data into an evidence-based marathon coaching report or PPTX. Use when Codex must first check whether athlete, goal, current-load, health, heart-rate, and scheduling information is sufficient; ask concise grouped follow-up questions when critical fields are missing or ambiguous; then produce quantified analysis, pace and heart-rate zones, phased training, injury and female-physiology safeguards, race strategy, sponsor integration, source notes, and visual QA.
 ---
 
 # Build Marathon Training Deck
 
 Turn incomplete runner information into a coach-ready, sourced presentation. Keep coaching decisions explicit, medical uncertainty visible, sponsor content useful, and every visual verified after rendering.
 
+## Intake gate
+
+1. Accept the runner profile as text, image, table, spreadsheet, or JSON. Extract it without inventing missing values.
+2. Read `references/runner-profile-intake.md`, normalize the profile, and record the exact raw wording for ambiguous fields such as recent running volume.
+3. Run `scripts/validate_runner_profile.py` on the normalized JSON.
+4. Follow the returned readiness:
+   - `ready`: generate the report directly.
+   - `provisional`: generate only when missing items do not materially change safety or load; show assumptions and verification items.
+   - `needs_input`: ask the returned questions and wait. Ask no more than three grouped questions in one round.
+5. Merge answers into the existing profile. Do not ask again for supplied information and do not restart the analysis.
+
+Never hide an ambiguity behind an assumption when it changes weekly volume, plan length, injury safety, or goal pace.
+
 ## Required workflow
 
-1. Normalize the brief before calculating anything.
+1. Confirm the intake gate has passed before calculating anything.
    - Resolve ambiguous units such as “近3个月跑量” versus “每月跑量”.
    - Record race date, target, available weeks, training frequency, recent monthly volume, PB dates, injury status, age, sex, location, and sponsor constraints.
    - Label each important statement as fact, calculation, coaching inference, assumption, or item to verify.
@@ -61,6 +74,8 @@ Use this sequence unless the brief requires another structure:
 
 ## Resources
 
+- `references/runner-profile-intake.md`: input schema, readiness rules, grouped follow-up questions, and a worked profile example.
 - `references/methodology.md`: calculations, planning logic, injury safeguards, female-physiology handling, and sponsor framework.
 - `references/qa-checklist.md`: content, evidence, visual, and export release checks.
+- `scripts/validate_runner_profile.py`: deterministic readiness and missing-information check for normalized runner JSON.
 - `scripts/running_metrics.py`: BMI, weekly-equivalent volume, goal pace, MHR/HRR zones, Riegel equivalents, and Daniels-style VDOT estimates.

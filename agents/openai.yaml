@@ -1,0 +1,4 @@
+interface:
+  display_name: "Marathon Training Deck Builder"
+  short_description: "Build evidence-based marathon coaching decks"
+  default_prompt: "Use $build-marathon-training-deck to turn an athlete profile, race goal, and sponsor requirements into a sourced, visually verified marathon training presentation."

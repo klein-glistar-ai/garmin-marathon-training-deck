@@ -1,4 +1,4 @@
 interface:
   display_name: "Marathon Training Deck Builder"
   short_description: "Turn runner profiles into marathon coaching decks"
-  default_prompt: "Use $build-marathon-training-deck with the runner information I provide. Check whether the profile is sufficient, ask up to three grouped follow-up questions if critical information is missing, then create the sourced marathon coaching report and presentation."
+  default_prompt: "Use $build-marathon-training-deck with the runner information I provide. Check whether the profile is sufficient, ask up to three grouped follow-up questions if critical information is missing, then create the sourced marathon coaching report and presentation. If I request a personalized cover visual, generate a clearly disclosed synthetic runner illustration that fits the slide frame without cropping."

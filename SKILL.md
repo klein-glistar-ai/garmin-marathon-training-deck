@@ -1,6 +1,6 @@
 ---
 name: build-marathon-training-deck
-description: Turn a runner profile supplied as natural language, an image, a table, or structured data into an evidence-based marathon coaching report or PPTX. Use when Codex must first check whether athlete, goal, current-load, health, heart-rate, and scheduling information is sufficient; ask concise grouped follow-up questions when critical fields are missing or ambiguous; then produce quantified analysis, pace and heart-rate zones, phased training, injury and female-physiology safeguards, race strategy, sponsor integration, source notes, and visual QA.
+description: Turn a runner profile supplied as natural language, an image, a table, or structured data into an evidence-based marathon coaching report or PPTX. Use when Codex must first check whether athlete, goal, current-load, health, heart-rate, and scheduling information is sufficient; ask concise grouped follow-up questions when critical fields are missing or ambiguous; then produce quantified analysis, pace and heart-rate zones, phased training, injury and female-physiology safeguards, race strategy, optional profile-based synthetic cover imagery, sponsor integration, source notes, and visual QA.
 ---
 
 # Build Marathon Training Deck
@@ -43,11 +43,16 @@ Never hide an ambiguity behind an assumption when it changes weekly volume, plan
    - Use official product images or user-provided assets. Never synthesize a branded product photo or invent specifications.
    - Keep the entire product visible with contain fitting unless the brief explicitly requests a crop.
    - Separate roles such as monitoring, hydration/electrolytes, carbohydrate, amino-acid supplement, footwear, and apparel.
-6. Create the deck with a coherent visual system.
+6. Build the cover visual deliberately.
+   - Read `references/cover-visuals.md` when the brief requests a personalized runner image or when a synthetic cover portrait is an approved deliverable.
+   - Treat a generated runner as an illustrative representation, never as the athlete's real likeness. Base it only on explicitly supplied traits and disclose the synthetic status on-slide or in an adjacent note.
+   - Match the destination frame before generation. Request complete-body framing and use contain fitting when the brief requires the full image to remain visible.
+   - Keep apparel brand-neutral unless authentic approved assets are supplied. Never generate sponsor logos, branded product photos, race evidence, or fake screenshots.
+7. Create the deck with a coherent visual system.
    - Use one dominant brand system, consistent grid, restrained accents, and large readable type.
    - Prefer one message per slide and outcome-led titles.
    - Add a concise source note and uncertainty language where evidence is limited.
-7. Render and verify before delivery.
+8. Render and verify before delivery.
    - Render every slide, inspect every slide image, and run the presentation overflow test.
    - Use `references/qa-checklist.md` as the release gate.
 
@@ -77,5 +82,6 @@ Use this sequence unless the brief requires another structure:
 - `references/runner-profile-intake.md`: input schema, readiness rules, grouped follow-up questions, and a worked profile example.
 - `references/methodology.md`: calculations, planning logic, injury safeguards, female-physiology handling, and sponsor framework.
 - `references/qa-checklist.md`: content, evidence, visual, and export release checks.
+- `references/cover-visuals.md`: safe profile-based runner-image generation, disclosure, composition, and fit rules.
 - `scripts/validate_runner_profile.py`: deterministic readiness and missing-information check for normalized runner JSON.
 - `scripts/running_metrics.py`: BMI, weekly-equivalent volume, goal pace, MHR/HRR zones, Riegel equivalents, and Daniels-style VDOT estimates.

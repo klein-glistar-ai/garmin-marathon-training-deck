@@ -34,6 +34,10 @@
 - [ ] Body text is legible at presentation distance.
 - [ ] Tables fit without clipping, tiny type, or false precision.
 - [ ] Images preserve aspect ratio and important content.
+- [ ] A generated runner image is clearly disclosed as illustrative and does not claim to be the athlete's real likeness.
+- [ ] The generated cover image matches its destination frame; required head, hands, legs, and shoes remain fully visible.
+- [ ] Synthetic runner apparel is brand-neutral, and no sponsor product, logo, screenshot, map, or race evidence was generated.
+- [ ] Project-bound generated imagery is saved inside the workspace with its prompt and asset path recorded.
 - [ ] Every sourced slide has direct URLs in speaker notes.
 - [ ] Every slide was rendered and inspected individually.
 - [ ] Montage was inspected for rhythm and consistency.

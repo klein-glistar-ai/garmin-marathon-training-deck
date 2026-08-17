@@ -11,6 +11,7 @@ An OpenAI Codex skill for turning a runner profile supplied as text, an image, a
 - Injury traffic lights and explicit medical boundaries
 - Symptom-led female physiology adaptation
 - Sponsor integration through training validation rather than claims
+- Optional profile-based synthetic runner cover imagery with identity disclosure
 - Slide-level sources, rendering, image-fit checks, and overflow QA
 
 ## Install

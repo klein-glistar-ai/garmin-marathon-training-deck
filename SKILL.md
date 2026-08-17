@@ -52,7 +52,13 @@ Never hide an ambiguity behind an assumption when it changes weekly volume, plan
    - Use one dominant brand system, consistent grid, restrained accents, and large readable type.
    - Prefer one message per slide and outcome-led titles.
    - Add a concise source note and uncertainty language where evidence is limited.
-8. Render and verify before delivery.
+8. Humanize audience-facing Simplified Chinese.
+   - Read `references/copy-editing.md` after calculations and coaching decisions are frozen, but before final rendering.
+   - When the `qu-ai-wei` skill is available, invoke it in embedded mode on all visible Simplified Chinese copy.
+   - Preserve every number, date, source, uncertainty qualifier, medical boundary, and stable training term. Do not rewrite MP, HRR, RPE, VDOT, PB, PacePro, or goal labels merely to sound different.
+   - Remove mechanical contrasts, slogan-like claims, repeated labels, abstract process language, and other copy that sounds written for a template rather than for the athlete.
+   - Rerender after the copy pass because natural wording changes line length and pagination.
+9. Render and verify before delivery.
    - Render every slide, inspect every slide image, and run the presentation overflow test.
    - Use `references/qa-checklist.md` as the release gate.
 
@@ -83,5 +89,6 @@ Use this sequence unless the brief requires another structure:
 - `references/methodology.md`: calculations, planning logic, injury safeguards, female-physiology handling, and sponsor framework.
 - `references/qa-checklist.md`: content, evidence, visual, and export release checks.
 - `references/cover-visuals.md`: safe profile-based runner-image generation, disclosure, composition, and fit rules.
+- `references/copy-editing.md`: protected facts, embedded `qu-ai-wei` workflow, coaching voice, and post-edit layout checks.
 - `scripts/validate_runner_profile.py`: deterministic readiness and missing-information check for normalized runner JSON.
 - `scripts/running_metrics.py`: BMI, weekly-equivalent volume, goal pace, MHR/HRR zones, Riegel equivalents, and Daniels-style VDOT estimates.

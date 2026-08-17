@@ -12,6 +12,7 @@ An OpenAI Codex skill for turning a runner profile supplied as text, an image, a
 - Symptom-led female physiology adaptation
 - Sponsor integration through training validation rather than claims
 - Optional profile-based synthetic runner cover imagery with identity disclosure
+- A final `qu-ai-wei` copy pass that keeps metrics and training terms intact while making Simplified Chinese sound natural
 - Slide-level sources, rendering, image-fit checks, and overflow QA
 
 ## Install
